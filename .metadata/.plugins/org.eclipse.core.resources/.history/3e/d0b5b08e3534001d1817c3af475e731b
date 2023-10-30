@@ -1,0 +1,11 @@
+package com.col.assignment.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
+
+public class FilterJson {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+}

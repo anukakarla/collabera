@@ -1,0 +1,171 @@
+package com.col.busmanagement.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.print.attribute.standard.Destination;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.col.busmanagement.beans.Bus;
+import com.col.busmanagement.beans.BusWoOwnerDetails;
+import com.col.busmanagement.beans.MyOwnerDetails;
+//import com.col.busmanagement.beans.MyOwnerDetails;
+import com.col.busmanagement.beans.OwnerDetails;
+import com.col.busmanagement.dao.BusDao;
+import com.col.busmanagement.dao.OwnerDetailsDao;
+
+@Service
+public class OwnerDetailsServiceImp implements OwnerDetailsService,UserDetailsService{
+	@Autowired
+	private BusDao busDao;
+	@Autowired
+	private OwnerDetailsDao detailsDao;
+	
+	
+
+	@Override
+	public OwnerDetails saveSign(OwnerDetails ownerDetails) {
+		if (ownerDetails!=null) {
+			List<OwnerDetails> admin=(List<OwnerDetails>) detailsDao.findByUsername(ownerDetails.getUsername());
+			for (OwnerDetails ownerDetails2 : admin) {
+				
+			}
+			
+			
+			
+		}
+		
+		
+		return detailsDao.save(ownerDetails);
+	}
+
+	@Override
+	public Bus addBus(Bus bus) {
+		 double specialCharge=bus.getNormalCharge();
+		if (bus.getBusFeautre().equals("AC") && bus.getSleeper().equals("No")) {
+			specialCharge=(bus.getNormalCharge()*0.1)+specialCharge;	
+		}
+		else if (bus.getBusFeautre().equals("NON-AC") && bus.getSleeper().equals("No")) {
+			specialCharge=bus.getNormalCharge();	
+		}
+		else if (bus.getBusFeautre().equals("AC") && bus.getSleeper().equals("Yes")) {
+			specialCharge=(bus.getNormalCharge()*2.51)+specialCharge;
+			
+		}
+		else if (bus.getBusFeautre().equals("NON-AC") && bus.getBusFeautre().equals("Yes")) {
+			specialCharge=(bus.getNormalCharge()*1.5)+specialCharge;
+			
+		}
+		bus.setSpecialCharge(specialCharge);
+		return busDao.save(bus);
+	}
+
+	@Override
+	public List<Bus> getAll() {
+
+		return (List<Bus>) busDao.findAll();
+
+	}
+
+	@Override
+	public boolean deleteBus(int busId) {
+		Object bus = busDao.findById(busId);
+		if (bus != null) {
+			busDao.deleteById(busId);
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
+
+	@Override
+	public List<BusWoOwnerDetails> getAllWo(int ownerId) {
+		List<BusWoOwnerDetails> busWoOwnerDetails = new ArrayList<BusWoOwnerDetails>();
+		if (ownerId > 0) {
+			
+			List<Bus> list1 = busDao.findallByOwnerId(ownerId);
+			for (Bus bus : list1) {
+				BusWoOwnerDetails details = new BusWoOwnerDetails();
+
+				details.setBusId(bus.getBusId());
+				details.setBusName(bus.getBusName());
+				details.setSpecialCharge(bus.getSpecialCharge());
+//				details.setCharge(bus.getCharge());
+				details.setDestination(bus.getDestination());
+				details.setDistance(bus.getDistance());
+				details.setSource(bus.getSource());
+				details.setArrivalTime(bus.getArrivalTime());
+				details.setDepartedTime(bus.getDepartedTime());
+				details.setBusFeautre(bus.getBusFeautre());
+				details.setNormalCharge(bus.getNormalCharge());
+				details.setSleeper(bus.getSleeper());
+				details.setUsername(bus.getDetails().getUsername());
+				busWoOwnerDetails.add(details);
+
+			}
+
+		}
+
+		return busWoOwnerDetails;
+	}
+
+	@Override
+	public Bus updateBus(Bus bus) {
+		return busDao.save(bus);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		OwnerDetails details=detailsDao.findByUsername(username);
+		if (details!=null) {
+			return new MyOwnerDetails(details);
+			
+		}
+		else {
+			
+		throw new UsernameNotFoundException("Owner Details are not found"+ username);
+		
+		}
+	}
+
+	@Override
+	public OwnerDetails getRole1(String role) {
+		return detailsDao.findByUsername(role);
+	}
+
+//	@Override
+//	public List<BusWoOwnerDetails> place(BusWoOwnerDetails details) {
+//		List<BusWoOwnerDetails> details1=new ArrayList<BusWoOwnerDetails>();
+//		List<Bus> bus=busDao.findByPlace(details.getSource(),details.getDestination());
+//		for (Bus bus2 : bus) {
+//			BusWoOwnerDetails busWoOwnerDetails=new BusWoOwnerDetails();
+//			
+//			busWoOwnerDetails.setBusId(bus2.getBusId());
+//			busWoOwnerDetails.setBusName(bus2.getBusName());
+//			busWoOwnerDetails.setDepartedTime(bus2.getDepartedTime());
+//			busWoOwnerDetails.setArrivalTime(bus2.getArrivalTime());
+//			busWoOwnerDetails.setBusFeautre(bus2.getBusFeautre());
+//			busWoOwnerDetails.setDestination(bus2.getDestination());
+//			busWoOwnerDetails.setDistance(bus2.getDistance());
+//			busWoOwnerDetails.setNormalCharge(bus2.getNormalCharge());
+//			busWoOwnerDetails.setSleeper(bus2.getSleeper());
+//			
+//			details1.add(busWoOwnerDetails);
+//			
+//		}
+//		return details1;
+//	}
+
+	
+
+
+}

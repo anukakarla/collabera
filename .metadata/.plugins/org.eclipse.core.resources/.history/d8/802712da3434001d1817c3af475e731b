@@ -1,0 +1,33 @@
+package com.col.assignment.service;
+
+
+import java.net.URISyntaxException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.col.assignment.domain.Country;
+@Service
+public class JsonParsingService implements ParsingService{ 
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@Override
+	public String parse(String url) {
+		
+//		RequestEntity request=new RequestEntity(HttpMethod.GET, new URI(url));
+//		ResponseEntity<String> entity=restTemplate.exchange(request, String.class);
+//		return entity.getBody();
+		
+		return restTemplate.getForObject(url, String.class);
+
+
+		
+	}
+	
+
+}

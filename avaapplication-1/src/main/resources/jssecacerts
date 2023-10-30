@@ -1,0 +1,88 @@
+
+
+[
+[
+  Version: V3
+  Subject: CN=restcountries.com
+  Signature Algorithm: SHA256withRSA, OID = 1.2.840.113549.1.1.11
+
+  Key:  Sun RSA public key, 2048 bits
+  params: null
+  modulus: 25340956443854758927909998111538958954933964771614922253181195364182486825948199090359800770743000836829748533636921382504297264242217447768888575682268169507007319268761522685425723208321479819686507280830411853677026415118147374425962152021574392401468242876869281521801353518361656283560939913779044567902185303498632472339445468089239991876343217426789070474038422591338106352341580761487702782424510559231952199011357193916442085096759571772761085644773147987859167285945994909454964884765627509884438366606184480542461029481762290584319825880020169585290759687449316395108406967273173206406715288536151930623431
+  public exponent: 65537
+  Validity: [From: Sat Sep 10 13:18:02 IST 2022,
+               To: Sat Sep 24 13:18:02 IST 2022]
+  Issuer: CN="Zscaler Intermediate Root CA (zscalertwo.net) (t) ", OU=Zscaler Inc., O=Zscaler Inc., ST=California, C=US
+  SerialNumber: [    63bbbfd3 6e30539f 6be3a529 51d3b4bf 9861]
+
+Certificate Extensions: 6
+[1]: ObjectId: 1.3.6.1.4.1.11129.2.4.2 Criticality=false
+Extension unknown: DER encoded OCTET string =
+0000: 04 81 F4 04 81 F1 00 EF   00 75 00 DF A5 5E AB 68  .........u...^.h
+0010: 82 4F 1F 6C AD EE B8 5F   4E 3E 5A EA CD A2 12 A4  .O.l..._N>Z.....
+0020: 6A 5E 8E 3B 12 C0 20 44   5C 2A 73 00 00 01 83 34  j^.;.. D\*s....4
+0030: BE C4 01 00 00 04 03 00   46 30 44 02 20 6E A8 E2  ........F0D. n..
+0040: FE B5 8A 0E DD 29 1D FE   A3 25 26 05 18 FF 77 0E  .....)...%&...w.
+0050: 28 84 CA 4C C9 5A 2C 24   DE 2C 70 33 03 02 20 1A  (..L.Z,$.,p3.. .
+0060: 7D 72 DF 90 6C 64 3D EE   5D D1 C3 EB F5 1B 80 D9  .r..ld=.].......
+0070: 41 79 6C 8B 54 66 3F E6   92 82 8B 09 F9 E7 4A 00  Ayl.Tf?.......J.
+0080: 76 00 29 79 BE F0 9E 39   39 21 F0 56 73 9F 63 A5  v.)y...99!.Vs.c.
+0090: 77 E5 BE 57 7D 9C 60 0A   F8 F9 4D 5D 26 5C 25 5D  w..W..`...M]&\%]
+00A0: C7 84 00 00 01 83 34 BE   C3 FB 00 00 04 03 00 47  ......4........G
+00B0: 30 45 02 21 00 D9 B1 2C   75 DE 7E DD DB 29 E3 D0  0E.!...,u....)..
+00C0: 47 4A F0 9E 48 99 93 4C   A6 36 51 06 D3 E7 17 F4  GJ..H..L.6Q.....
+00D0: D5 08 1D A5 5B 02 20 24   EF 75 7B 9D 03 56 A9 AC  ....[. $.u...V..
+00E0: 32 61 B5 7B 45 92 15 44   DD A5 94 BE 76 F8 07 36  2a..E..D....v..6
+00F0: 38 50 DB 92 36 13 04                               8P..6..
+
+
+[2]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:false
+  PathLen: undefined
+]
+
+[3]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://gateway.zscalertwo.net/zscaler-zscrl--4.crl]
+]]
+
+[4]: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+  clientAuth
+]
+
+[5]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_Encipherment
+]
+
+[6]: ObjectId: 2.5.29.17 Criticality=false
+SubjectAlternativeName [
+  DNSName: restcountries.com
+]
+
+]
+  Algorithm: [SHA256withRSA]
+  Signature:
+0000: 12 25 00 4D 40 B2 04 32   C3 59 5C 65 3C 09 EE D3  .%.M@..2.Y\e<...
+0010: 1E 60 D1 AB DD 0E 5B 51   0A 93 2E 2B 31 56 AE 7A  .`....[Q...+1V.z
+0020: 2C 56 E7 6B 3C A6 97 C4   88 BB E3 0B 13 5C 0F DB  ,V.k<........\..
+0030: 82 32 C6 0A 93 E5 96 08   4F A5 C8 B7 84 F9 A6 47  .2......O......G
+0040: 9F 72 C2 9C 6F D9 46 73   49 87 6F 9A 6B D2 DE 17  .r..o.FsI.o.k...
+0050: A9 7A 15 BD 99 59 51 54   28 AB B0 F7 4E 98 8A A6  .z...YQT(...N...
+0060: C5 FD 44 5C 82 33 8F 16   69 12 74 72 26 30 38 19  ..D\.3..i.tr&08.
+0070: 83 D3 87 E7 30 0D E1 BC   D5 46 2E 3D B6 FE 85 27  ....0....F.=...'
+0080: 9E 60 6F 16 79 21 6C B6   83 6A 59 66 C0 D4 36 0F  .`o.y!l..jYf..6.
+0090: 8E 12 DE 2F 8F 99 29 D7   1B BD 75 D9 57 65 1E EB  .../..)...u.We..
+00A0: 3B 94 AC 23 D4 6C D8 2E   74 9C ED F8 E2 02 B2 0D  ;..#.l..t.......
+00B0: DB 12 EC F2 A0 B4 B8 49   51 C4 E2 71 97 F5 21 FA  .......IQ..q..!.
+00C0: 99 9D 7F 2F 0D 24 A4 33   E1 D8 3C 18 FA 41 E1 E5  .../.$.3..<..A..
+00D0: 10 07 83 76 06 4C C1 43   4B D6 21 A2 79 F7 2C A8  ...v.L.CK.!.y.,.
+00E0: 4B DD 45 12 F9 B7 D6 EF   BE AF 5E 41 F5 58 82 B3  K.E.......^A.X..
+00F0: 9D AF EE D9 3C 88 76 33   EB 92 B9 7C E3 D2 A3 B8  ....<.v3........
+
+]

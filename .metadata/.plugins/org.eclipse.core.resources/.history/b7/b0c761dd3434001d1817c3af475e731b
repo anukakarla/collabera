@@ -1,0 +1,8 @@
+package com.col.assignment.service;
+
+
+public interface ParsingService {
+	
+	Object parse(String url);
+
+}
